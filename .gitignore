@@ -1,0 +1,6 @@
+node_modules/
+temporary screenshots/
+package-lock.json
+# Ignore loose screenshots but keep brand assets
+shakuro.com_*.png
+screenshot*.png
