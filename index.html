@@ -843,13 +843,13 @@
       font-weight: 700;
       color: var(--text);
       letter-spacing: -0.02em;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
 
     .service-desc {
       font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.65;
+      line-height: 1.7;
     }
 
     /* ── WHO IT'S FOR ─────────────────────────── */
@@ -980,7 +980,17 @@
       margin: 0 auto;
       position: relative;
       z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: start;
     }
+    @media (max-width: 900px) {
+      .cta-inner { grid-template-columns: 1fr; gap: 48px; }
+    }
+
+    .cta-left { text-align: left; }
+    .cta-right { text-align: left; }
 
     .cta-h2 {
       font-size: clamp(36px, 4.5vw, 54px);
@@ -1048,6 +1058,128 @@
       font-size: 13px;
       color: var(--text-dim);
     }
+
+    /* ── NEXT-STEPS CARD (replaces old contact form) ─── */
+    .next-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 20px;
+      padding: 40px 36px;
+      backdrop-filter: blur(8px);
+    }
+    .next-card-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .next-card-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 26px;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: #fff;
+      margin-bottom: 32px;
+    }
+    .next-steps {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 32px;
+      display: grid;
+      gap: 22px;
+    }
+    .next-step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+    .next-step-num {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(0,184,245,0.12);
+      border: 1px solid rgba(0,184,245,0.25);
+      color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      flex-shrink: 0;
+    }
+    .next-step-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      color: #fff;
+      letter-spacing: -0.01em;
+      margin-bottom: 6px;
+    }
+    .next-step-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.55);
+    }
+    .next-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      background: var(--accent);
+      text-decoration: none;
+      padding: 14px 24px;
+      border-radius: 10px;
+      transition: transform 0.15s ease, box-shadow 0.2s ease, background 0.15s ease;
+      box-shadow: 0 6px 20px rgba(0,184,245,0.25);
+      width: 100%;
+      justify-content: center;
+    }
+    .next-cta:hover {
+      background: #20c4ff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 28px rgba(0,184,245,0.35);
+    }
+
+    .cta-meta {
+      display: grid;
+      gap: 18px;
+      margin-top: 36px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .cta-meta-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .cta-meta-ico {
+      width: 36px; height: 36px;
+      border-radius: 8px;
+      background: rgba(0,184,245,0.12);
+      color: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .cta-meta-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 2px;
+    }
+    .cta-meta-value {
+      font-size: 15px;
+      color: #fff;
+      font-weight: 500;
+    }
+    .cta-meta-value a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.2); }
+    .cta-meta-value a:hover { border-color: var(--accent); color: var(--accent); }
 
     /* ── FOOTER ─────────────────────────────── */
     .footer {
@@ -1197,7 +1329,7 @@
   <!-- ─── NAV ─────────────────────────────────────── -->
   <nav class="nav">
     <div class="nav-inner">
-      <a href="#" class="nav-logo">
+      <a href="#top" class="nav-logo">
         <div class="nav-logo-icon">
           <svg viewBox="0 0 24 24" fill="none">
             <path d="M4 5h16l-6 8v5l-4-2V13L4 5z" stroke="#00b8f5" stroke-width="1.8" stroke-linejoin="round"/>
@@ -1574,6 +1706,43 @@
           </ul>
         </div>
       </div>
+
+      <div class="cta-right">
+        <div class="next-card">
+          <p class="next-card-eyebrow">What happens next</p>
+          <p class="next-card-title">From click to kickoff in 3 steps.</p>
+
+          <ol class="next-steps">
+            <li class="next-step">
+              <div class="next-step-num">1</div>
+              <div>
+                <p class="next-step-title">You book a slot</p>
+                <p class="next-step-desc">Pick a 30-minute window that works for you. No sales sequence, no forms to fill — just grab a time on the calendar.</p>
+              </div>
+            </li>
+            <li class="next-step">
+              <div class="next-step-num">2</div>
+              <div>
+                <p class="next-step-title">We jump on a call</p>
+                <p class="next-step-desc">We walk through your current funnel, talk through your niche and numbers, and show the system running live on a real account.</p>
+              </div>
+            </li>
+            <li class="next-step">
+              <div class="next-step-num">3</div>
+              <div>
+                <p class="next-step-title">You decide</p>
+                <p class="next-step-desc">If it's a fit, we scope next steps together. If it's not, you leave with notes you can actually use — no hard sell.</p>
+              </div>
+            </li>
+          </ol>
+
+          <a href="book.html" class="next-cta">
+            Pick a time
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M8 3l5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -1599,7 +1768,7 @@
     <div class="footer-inner">
       <div class="footer-top">
         <div>
-          <a href="#" class="footer-logo">
+          <a href="#top" class="footer-logo">
             <div class="footer-logo-icon">
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
                 <path d="M4 5h16l-6 8v5l-4-2V13L4 5z" stroke="#00b8f5" stroke-width="1.8" stroke-linejoin="round"/>
