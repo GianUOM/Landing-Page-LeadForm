@@ -208,7 +208,7 @@ function FitChecker() {
         <SliderRow label="Sales calls per month" value={calls} min={0} max={80} onChange={setCalls} />
 
         <ToggleRow label="Agency category" active={agencyType} setActive={setAgencyType} left="Marketing / lead gen" right="Other" />
-        <ToggleRow label="Primary market" active={market} setActive={setMarket} left="UK / US / CA / AU" right="Other" />
+        <ToggleRow label="Primary market" active={market} setActive={setMarket} left="UK / US / CA / AU/ Europe" right="Other" />
 
         <label className="flex items-center justify-between gap-4 rounded-xl bg-white/[0.035] px-4 py-3 cursor-pointer">
           <span className="text-sm text-hero-sub opacity-85">Ready to improve process, not just add tools</span>
