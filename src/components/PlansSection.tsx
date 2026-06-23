@@ -3,11 +3,11 @@ import { motion } from 'framer-motion'
 import { ArrowRight, Check, X } from 'lucide-react'
 
 const GOOD_FIT = [
-  'Marketing, lead gen, paid ads, or appointment setting agency',
-  'Generating £30,000–£80,000+ per month in revenue',
-  '3–15 staff with an established service and client base',
+  'Marketing, digital marketing, SEO, PPC, social media, web design, lead gen, paid ads, or appointment setting agency',
+  'Generating £80,000+ per year in revenue',
+  '10–50 staff with an established service and client base',
   'Receiving 50+ leads per month and booking 20+ sales calls',
-  'Based in UK, USA, Canada, or Australia',
+  'Based in UK, USA, Canada, Australia or Europe',
   'Ready to invest in systems, not just ad spend or more hires',
 ]
 
