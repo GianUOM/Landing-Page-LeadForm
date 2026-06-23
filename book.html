@@ -17,12 +17,14 @@
       --navy-border: rgba(255,255,255,0.08);
       --accent: #00b8f5;
       --accent-dim: #0098d0;
-      --bg: #ffffff;
-      --bg-subtle: #f5f7fa;
-      --border: #e4e8ef;
-      --text-base: #0a1628;
-      --text-muted: #4a5568;
-      --text-dim: #8794a8;
+      
+      /* UPDATED COLORS */
+      --bg: #0a1628;          /* Changed to navy */
+      --bg-subtle: #162440;   /* Changed to lighter navy */
+      --border: rgba(255,255,255,0.1); /* Adjusted for visibility */
+      --text-base: #ffffff;   /* Changed to white */
+      --text-muted: #cbd5e0;  /* Changed to light grey */
+      --text-dim: #a0aec0;    /* Changed to mid-grey */
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { background: var(--bg); color: var(--text-base); font-family: 'DM Sans', sans-serif; -webkit-font-smoothing: antialiased; }
@@ -31,7 +33,7 @@
     /* Nav (slimmed copy of index nav) */
     .nav {
       position: sticky; top: 0; z-index: 50;
-      background: rgba(255,255,255,0.85);
+      background: rgba(10, 22, 40, 0.85);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -55,7 +57,7 @@
       padding: 8px 14px; border-radius: 8px;
       transition: background 0.15s ease, color 0.15s ease;
     }
-    .nav-back:hover { background: var(--bg-subtle); color: var(--text-base); }
+    .nav-back:hover { background: var(--navy-soft); color: var(--text-base); }
 
     /* Page layout */
     .page {
@@ -116,11 +118,10 @@
 
     /* Cal.com embed area */
     .cal-card {
-      background: #fff;
+      background: var(--navy-soft);
       border: 1px solid var(--border);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 8px 32px rgba(10,22,40,0.06);
       min-height: 720px;
       position: relative;
     }
@@ -295,7 +296,7 @@
         elementOrSelector: "#cal-mount",
         calLink: CAL_LINK,
         layout: "month_view",
-        config: { theme: "light" }
+        config: { theme: "dark" }
       });
       Cal.ns.discovery("ui", {
         theme: "light",
