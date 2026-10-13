@@ -1,41 +1,29 @@
-import { useMemo, useState } from 'react'
+import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowRight, Check, X } from 'lucide-react'
 
 const GOOD_FIT = [
-  'Marketing, digital marketing, SEO, PPC, social media, web design, lead gen, paid ads, or appointment setting agency',
-  'Generating £80,000+ per month in revenue',
-  '10–50 staff with an established service and client base',
-  'Receiving 50+ leads per month and booking 20+ sales calls',
-  'Based in UK, USA, Canada, Australia or Europe',
-  'Ready to invest in systems, not just ad spend or more hires',
+  'US-based B2B business coaching or consulting company with 1–25 employees',
+  'Proven services worth $5,000+ per engagement, with paying clients and evidence of outcomes',
+  'A defined target market with decision-makers identifiable on LinkedIn',
+  'Reliant on referrals, networking or inconsistent outbound',
+  'Capacity for new clients, sales calls and follow-up',
+  'Ready to invest in managed LinkedIn acquisition',
 ]
 
 const NOT_FIT = [
-  "Just starting out with no repeatable source of leads",
-  'Booking fewer than 20 sales calls per month',
-  'Want a one-off tool — not a long-term systems partner',
-  'Not open to AI or unwilling to change internal processes',
-  'Expect results without any operational changes',
-  'Looking for a low-cost or cheap automation solution',
+  'Low-ticket services below $5,000 per engagement',
+  'An unproven offer without paying clients or evidence of outcomes',
+  'No defined target market',
+  'Buyers who cannot be identified on LinkedIn',
+  'No capacity to take on clients or handle sales follow-up',
+  'Unable to convert qualified opportunities into customers',
 ]
 
 const STEPS = [
-  {
-    num: '1',
-    title: 'You book a slot',
-    desc: 'Pick a 30-minute window that works. No forms, no sales sequence — just grab a time on the calendar.',
-  },
-  {
-    num: '2',
-    title: 'We jump on a call',
-    desc: 'We walk through your funnel, talk through your numbers, and show the system running live.',
-  },
-  {
-    num: '3',
-    title: 'You decide',
-    desc: "If it's a fit, we scope next steps together. If not, you leave with notes you can use.",
-  },
+  { num: '1', title: 'Book a strategy call', desc: 'Choose a time to talk about your offer, ideal buyers and current approach to winning clients.' },
+  { num: '2', title: 'Check the fit together', desc: 'We discuss whether your buyers are reachable on LinkedIn and what a qualified opportunity means for you.' },
+  { num: '3', title: 'Agree the next steps', desc: 'If there is a fit, we agree scope, responsibilities and the 90-day engagement before onboarding.' },
 ]
 
 const listContainer = {
@@ -67,11 +55,11 @@ export function PlansSection() {
             Who it's for
           </p>
           <h2 className="font-headline text-4xl md:text-5xl font-semibold text-foreground leading-tight tracking-tight">
-            Built for agencies <span className="gradient-text">serious about</span> scaling.
+            Built for established <span className="gradient-text">B2B coaches</span> and consultants.
           </h2>
           <p className="text-hero-sub text-lg mt-4 opacity-80 leading-8">
-            Check fit before you book. The strongest matches already have lead flow,
-            sales calls, and a real process worth improving.
+            You have a proven offer. You want a more repeatable way to meet
+            relevant buyers beyond your existing network.
           </p>
         </motion.div>
 
@@ -149,31 +137,20 @@ function ListCard({ title, items, good = false }: { title: string; items: string
 }
 
 function FitChecker() {
-  const [revenue, setRevenue] = useState(50)
-  const [leads, setLeads] = useState(80)
-  const [calls, setCalls] = useState(28)
-  const [agencyType, setAgencyType] = useState(true)
-  const [market, setMarket] = useState(true)
-  const [systemsMindset, setSystemsMindset] = useState(true)
-
-  const score = useMemo(() => {
-    return [
-      agencyType,
-      market,
-      systemsMindset,
-      revenue >= 30,
-      leads >= 50,
-      calls >= 20,
-    ].filter(Boolean).length
-  }, [agencyType, calls, leads, market, revenue, systemsMindset])
-
-  const scoreRatio = score / 6
-  const result =
-    score >= 5
-      ? { label: 'Strong fit', note: 'You likely have enough lead flow for the system to compound.', color: '#10b981' }
-      : score >= 3
-        ? { label: 'Worth a look', note: 'There may be leverage, but the audit should confirm the numbers.', color: '#38bdf8' }
-        : { label: 'Not ready yet', note: 'Build more predictable demand before investing in automation.', color: '#f87171' }
+  const criteria = [
+    'US-based B2B coach or consultant, with 1–25 employees',
+    'Proven $5,000+ offer, paying clients and evidence of outcomes',
+    'Defined buyers identifiable on LinkedIn',
+    'Capacity for more clients and sales follow-up',
+    'Able to convert qualified opportunities into clients',
+    'Ready to invest in managed LinkedIn acquisition',
+  ]
+  const [answers, setAnswers] = useState<boolean[]>(criteria.map(() => false))
+  const score = answers.filter(Boolean).length
+  const scoreRatio = score / criteria.length
+  const result = score === 6
+    ? { label: 'Potential fit', note: 'Your answers match the core criteria. A strategy call will confirm whether the service is right for you.', color: '#10b981' }
+    : { label: 'Check your fit', note: 'Select each statement that applies. This service is designed for businesses that meet all six criteria.', color: '#38bdf8' }
 
   return (
     <motion.div
@@ -187,9 +164,9 @@ function FitChecker() {
       <div className="flex items-center justify-between gap-4 mb-6">
         <div>
           <p className="font-headline text-foreground font-semibold text-lg leading-tight">
-            Agency fit checker
+            Is this right for you?
           </p>
-          <p className="text-hero-sub text-xs mt-1 opacity-70">Live score from your current numbers</p>
+          <p className="text-hero-sub text-xs mt-1 opacity-70">Check the core offer criteria</p>
         </div>
         <motion.div
           className="rounded-full px-3 py-1 text-xs font-semibold"
@@ -203,27 +180,19 @@ function FitChecker() {
       </div>
 
       <div className="space-y-5">
-        <SliderRow label="Monthly revenue" value={revenue} suffix="k" min={0} max={120} onChange={setRevenue} />
-        <SliderRow label="Leads per month" value={leads} min={0} max={180} onChange={setLeads} />
-        <SliderRow label="Sales calls per month" value={calls} min={0} max={80} onChange={setCalls} />
-
-        <ToggleRow label="Agency category" active={agencyType} setActive={setAgencyType} left="Marketing / lead gen" right="Other" />
-        <ToggleRow label="Primary market" active={market} setActive={setMarket} left="UK / US / CA / AU/ Europe" right="Other" />
-
-        <label className="flex items-center justify-between gap-4 rounded-xl bg-white/[0.035] px-4 py-3 cursor-pointer">
-          <span className="text-sm text-hero-sub opacity-85">Ready to improve process, not just add tools</span>
-          <input
-            type="checkbox"
-            checked={systemsMindset}
-            onChange={(event) => setSystemsMindset(event.target.checked)}
-            className="h-4 w-4 accent-sky-400"
-          />
-        </label>
+        {criteria.map((criterion, index) => (
+          <label key={criterion} className="flex items-start justify-between gap-4 rounded-xl bg-white/[0.035] px-4 py-3 cursor-pointer">
+            <span className="text-sm text-hero-sub opacity-85">{criterion}</span>
+            <input type="checkbox" checked={answers[index]}
+              onChange={(event) => setAnswers(answers.map((answer, i) => i === index ? event.target.checked : answer))}
+              className="h-4 w-4 mt-1 shrink-0 accent-sky-400" />
+          </label>
+        ))}
       </div>
 
       <div className="mt-7">
         <div className="flex items-center justify-between text-xs text-hero-sub/70 mb-2">
-          <span>Fit score</span>
+          <span>Criteria met</span>
           <span>{score}/6</span>
         </div>
         <div className="h-2 rounded-full bg-white/5 overflow-hidden">
@@ -252,87 +221,9 @@ function FitChecker() {
         className="motion-button liquid-glass rounded-xl py-3 px-4 text-sm font-medium text-foreground/90 hover:text-foreground transition-colors duration-150 text-center mt-6 flex items-center justify-center gap-2"
         style={{ background: 'linear-gradient(to right, rgba(14,165,233,0.20), rgba(0,212,255,0.20))' }}
       >
-        <span>Pick a time</span>
+        <span>Book a strategy call</span>
         <ArrowRight className="w-4 h-4 relative z-[1]" />
       </a>
     </motion.div>
-  )
-}
-
-function SliderRow({
-  label,
-  value,
-  min,
-  max,
-  suffix = '',
-  onChange,
-}: {
-  label: string
-  value: number
-  min: number
-  max: number
-  suffix?: string
-  onChange: (value: number) => void
-}) {
-  return (
-    <label className="block">
-      <div className="flex items-center justify-between gap-4 mb-2">
-        <span className="text-sm text-hero-sub opacity-85">{label}</span>
-        <span className="text-sm font-semibold text-foreground">
-          {label.includes('Revenue') ? '£' : ''}
-          {value}
-          {suffix}
-        </span>
-      </div>
-      <input
-        type="range"
-        min={min}
-        max={max}
-        value={value}
-        onChange={(event) => onChange(Number(event.target.value))}
-        className="w-full accent-sky-400"
-      />
-    </label>
-  )
-}
-
-function ToggleRow({
-  label,
-  active,
-  setActive,
-  left,
-  right,
-}: {
-  label: string
-  active: boolean
-  setActive: (active: boolean) => void
-  left: string
-  right: string
-}) {
-  return (
-    <div>
-      <p className="text-sm text-hero-sub opacity-85 mb-2">{label}</p>
-      <div className="grid grid-cols-2 rounded-xl bg-white/[0.035] p-1">
-        {[{ label: left, value: true }, { label: right, value: false }].map((option) => (
-          <button
-            key={option.label}
-            type="button"
-            onClick={() => setActive(option.value)}
-            className="relative rounded-lg px-3 py-2 text-xs font-medium transition-colors duration-150"
-            style={{ color: active === option.value ? '#fff' : 'rgba(210,220,230,0.62)' }}
-          >
-            {active === option.value && (
-              <motion.span
-                layoutId={`${label}-active`}
-                className="absolute inset-0 rounded-lg"
-                style={{ background: 'rgba(0,180,255,0.16)' }}
-                transition={{ type: 'spring', stiffness: 320, damping: 28 }}
-              />
-            )}
-            <span className="relative z-[1]">{option.label}</span>
-          </button>
-        ))}
-      </div>
-    </div>
   )
 }

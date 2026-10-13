@@ -10,15 +10,15 @@ const FOOTER_LINKS = [
   {
     title: 'Get in touch',
     links: [
-      { label: 'Book a free audit', href: 'book.html' },
+      { label: 'Book a strategy call', href: 'book.html' },
       { label: 'gianluca@leadformsystems.com', href: 'mailto:gianluca@leadformsystems.com' },
     ],
   },
   {
-    title: 'Legal',
+    title: 'The offer',
     links: [
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms of Service', href: '#' },
+      { label: 'Engagement & pricing', href: '#engagement' },
+      { label: 'Check your fit', href: '#whos-it-for' },
     ],
   },
 ]
@@ -56,9 +56,9 @@ export function Footer() {
                 LeadForm Systems
               </span>
             </div>
-            <p className="text-hero-sub text-sm opacity-70 leading-6 max-w-[200px]">
-              AI-powered sales systems for marketing agencies — from lead capture to
-              booked sales call.
+            <p className="text-hero-sub text-sm opacity-70 leading-6 max-w-[260px]">
+              Qualification-first LinkedIn acquisition for established
+              B2B business coaches and consultants.
             </p>
           </div>
 
@@ -92,7 +92,7 @@ export function Footer() {
             © 2026 LeadForm Systems. All rights reserved.
           </p>
           <p className="text-foreground/20 text-xs">
-            Spaces are limited — we work with a select number of agencies at a time.
+            Personalised outreach. Relevant conversations. Clear qualification.
           </p>
         </div>
       </div>

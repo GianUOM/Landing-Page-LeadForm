@@ -10,48 +10,12 @@ interface Service {
 }
 
 const SERVICES: Service[] = [
-  {
-    icon: ClipboardList,
-    title: 'Sales Operations Audit',
-    description:
-      'We map your full lead-to-client journey and identify exactly where leads are being lost, delayed, or mismanaged — before a single automation is built.',
-    outcome: 'Leak map in week one',
-  },
-  {
-    icon: LayoutGrid,
-    title: 'System Design & Architecture',
-    description:
-      'A tailored sales infrastructure blueprint — CRM structure, qualification framework, follow-up workflows, and a complete automation roadmap.',
-    outcome: 'One connected blueprint',
-  },
-  {
-    icon: Sparkles,
-    title: 'AI Lead Qualification',
-    description:
-      'An AI system that qualifies every new lead within minutes — scoring, routing, and only surfacing the right prospects to your sales team.',
-    outcome: 'Scored before your team opens Slack',
-  },
-  {
-    icon: Mail,
-    title: 'Follow-Up Automation',
-    description:
-      'Multi-touch sequences across SMS, WhatsApp, and email — running 24/7, varied by angle and timing, with up to five automated follow-up attempts.',
-    outcome: 'Five touchpoints without chasing',
-  },
-  {
-    icon: CalendarDays,
-    title: 'Appointment Booking System',
-    description:
-      'Qualified leads get offered live calendar slots and book themselves in. Reminders, reschedules, and no-show recovery handled automatically.',
-    outcome: 'Booked calls, not inbox threads',
-  },
-  {
-    icon: TrendingUp,
-    title: 'Ongoing Optimisation',
-    description:
-      'Monthly monitoring, maintenance, and continuous improvement — fixing issues, refining sequences, adding automations. The system compounds over time.',
-    outcome: 'Monthly compounding gains',
-  },
+  { icon: ClipboardList, title: 'Targeting & prospect research', description: 'We refine your ideal customer profile and find relevant decision-makers on LinkedIn, based on your offer and agreed qualification criteria.', outcome: 'A clear picture of who to approach' },
+  { icon: LayoutGrid, title: 'Profile & content strategy', description: 'We optimise your LinkedIn profile and review your content strategy during onboarding, with themes that build trust. You handle content creation and publishing.', outcome: 'Positioning that supports outreach' },
+  { icon: Mail, title: 'Personalised outreach', description: 'We start relevant conversations through your LinkedIn account, with messaging grounded in prospect research and your offer.', outcome: 'Conversations with the right people' },
+  { icon: Sparkles, title: 'Conversation management & qualification', description: 'We manage replies, explore business challenges and assess buying interest against six agreed criteria before arranging a meeting.', outcome: 'Qualification before booking' },
+  { icon: CalendarDays, title: 'Booking & no-show follow-up', description: 'We book qualified prospects directly into your calendar, provide context for the call and follow up with no-shows. You lead the sales conversations.', outcome: 'Know who you are meeting and why' },
+  { icon: TrendingUp, title: 'Tracking & optimisation', description: 'After each appointment, we ask whether the prospect was qualified and whether a real opportunity emerged. Your feedback shapes targeting and messaging.', outcome: 'A documented process that improves' },
 ]
 
 const container = {
@@ -89,12 +53,12 @@ export function FeaturesSection() {
             What's included
           </p>
           <h2 className="font-headline text-4xl md:text-5xl font-semibold text-foreground leading-tight tracking-tight">
-            Six components.{' '}
-            <span className="gradient-text">One complete</span> sales system.
+            From first contact.{' '}
+            <span className="gradient-text">To a qualified</span> sales conversation.
           </h2>
           <p className="text-hero-sub text-lg mt-4 max-w-xl mx-auto opacity-80 leading-8">
-            Every deliverable is designed to work together. Nothing is standalone,
-            nothing is templated.
+            We manage prospecting, conversations and qualification so you can
+            focus on relevant sales calls and client delivery.
           </p>
         </motion.div>
 

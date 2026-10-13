@@ -4,7 +4,7 @@ import { WordsPullUpMultiStyle } from './WordsPullUpMultiStyle'
 import { AnimatedLetter } from './AnimatedLetter'
 
 const BODY_TEXT =
-  'Over the last five years, we have partnered with marketing agencies across the UK, USA, Canada, and Australia — recovering millions in lost pipeline through AI lead qualification systems, automated follow-up sequences, and CRM infrastructure that compounds over time.'
+  'We help established US-based B2B business coaches and consultants reach relevant decision-makers on LinkedIn. We manage personalised outreach, conversations, qualification and booking, then use your feedback to improve the process.'
 
 export function AboutSection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -26,7 +26,7 @@ export function AboutSection() {
           <p
             className="text-primary text-[10px] sm:text-xs tracking-[0.15em] uppercase mb-10"
           >
-            AI Sales Systems
+            LinkedIn Acquisition
           </p>
 
           {/* Multi-style heading */}
@@ -34,9 +34,9 @@ export function AboutSection() {
             <WordsPullUpMultiStyle
               segments={[
                 { text: 'We are LeadForm Systems,', className: 'font-normal' },
-                { text: 'a results-driven consultancy.', className: 'font-serif italic' },
+                { text: 'your LinkedIn acquisition partner.', className: 'font-serif italic' },
                 {
-                  text: 'We build AI-powered revenue systems that transform how agencies close.',
+                  text: 'We build conversations around genuine business needs and buying interest.',
                   className: 'font-normal',
                 },
               ]}

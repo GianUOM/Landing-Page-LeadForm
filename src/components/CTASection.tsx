@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, CheckCircle2, Clock3, FileSearch, Mail, TriangleAlert } from 'lucide-react'
+import { ArrowRight, CheckCircle2, FileSearch, Mail } from 'lucide-react'
 
 const REPORT_ROWS = [
-  { label: 'Lead response time', value: '12m -> 54s', status: 'Recovered', icon: Clock3 },
-  { label: 'Missed follow-ups', value: '37 open loops', status: 'Flagged', icon: TriangleAlert },
-  { label: 'Qualification logic', value: '6 rules mapped', status: 'Scored', icon: CheckCircle2 },
-  { label: 'Booking friction', value: '3 steps removed', status: 'Fixed', icon: FileSearch },
+  { label: 'ICP fit', value: 'Matches your agreed ideal customer profile', status: '01', icon: CheckCircle2 },
+  { label: 'Relevant problem', value: 'Has a business challenge your service can address', status: '02', icon: FileSearch },
+  { label: 'Genuine buying interest', value: 'Is open to exploring a solution', status: '03', icon: CheckCircle2 },
+  { label: 'Positive engagement', value: 'Participates meaningfully in the conversation', status: '04', icon: CheckCircle2 },
+  { label: 'Meeting agreement', value: 'Explicitly agrees to speak with you', status: '05', icon: CheckCircle2 },
+  { label: 'Investment awareness', value: 'Understands the approximate investment and remains open', status: '06', icon: CheckCircle2 },
 ]
 
 export function CTASection() {
@@ -23,19 +25,23 @@ export function CTASection() {
           transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-sm font-medium mb-4" style={{ color: '#00b4ff' }}>
-            Free Sales Operations Audit
+            Your LinkedIn acquisition partner
           </p>
 
           <h2 className="font-headline text-4xl md:text-6xl font-semibold leading-tight tracking-tight text-foreground">
-            Stop losing deals that{' '}
-            <span className="gradient-text">could win revenue back.</span>
+            Start with the{' '}
+            <span className="gradient-text">right conversations.</span>
           </h2>
 
           <p className="text-hero-sub text-lg mt-5 mb-10 opacity-80 leading-8">
-            In a 45-minute Sales Operations Audit, we map your full lead-to-client
-            journey, identify where leads are being lost, and give you a Revenue Leak
-            Report — free, no obligation.
+            Book a strategy call to discuss your offer, your ideal buyers and
+            whether qualification-first LinkedIn acquisition fits your business.
           </p>
+
+          <div className="liquid-glass rounded-2xl p-6 mb-8" id="engagement">
+            <p className="text-foreground text-3xl font-semibold">From $1,250<span className="text-base font-normal text-hero-sub"> / month</span></p>
+            <p className="text-hero-sub text-sm leading-6 mt-3">Sales Navigator included.</p>
+          </div>
 
           <div className="flex items-center gap-3 flex-wrap">
             <a
@@ -49,7 +55,7 @@ export function CTASection() {
                 background: 'linear-gradient(135deg, rgba(14,165,233,0.20), rgba(0,212,255,0.20))',
               }}
             >
-              <span>Book your free audit</span>
+              <span>Book a strategy call</span>
               <ArrowRight className="w-4 h-4 relative z-[1]" />
             </a>
 
@@ -63,7 +69,7 @@ export function CTASection() {
           </div>
 
           <p className="text-foreground/30 text-xs mt-6">
-            We work with a limited number of agencies at any one time.
+            You handle sales calls, sales follow-up and content execution. We manage outreach, qualification, booking and no-show follow-up.
           </p>
         </motion.div>
 
@@ -85,8 +91,8 @@ function AuditPreview() {
     >
       <div className="flex items-center justify-between gap-4 mb-7">
         <div>
-          <p className="text-foreground text-sm font-semibold">Revenue Leak Report</p>
-          <p className="text-hero-sub text-xs mt-1 opacity-70">Example audit output</p>
+          <p className="text-foreground text-sm font-semibold">What makes a meeting qualified?</p>
+          <p className="text-hero-sub text-xs mt-1 opacity-70">Six agreed criteria, reviewed with your feedback</p>
         </div>
         <motion.div
           className="w-11 h-11 rounded-xl flex items-center justify-center"
@@ -124,7 +130,7 @@ function AuditPreview() {
                     <Icon className="w-4 h-4" />
                   </span>
                   <div className="min-w-0">
-                    <p className="text-foreground text-sm font-semibold truncate">{row.label}</p>
+                    <p className="text-foreground text-sm font-semibold">{row.label}</p>
                     <p className="text-hero-sub text-xs mt-0.5 opacity-70">{row.value}</p>
                   </div>
                 </div>
@@ -148,7 +154,7 @@ function AuditPreview() {
                     transformOrigin: 'left',
                   }}
                   initial={{ scaleX: 0 }}
-                  whileInView={{ scaleX: isWarning ? 0.58 : 0.9 - index * 0.08 }}
+                  whileInView={{ scaleX: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.15 + index * 0.12, duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
                 />

@@ -2,8 +2,8 @@ import { motion } from 'framer-motion'
 import { AlertTriangle, CalendarCheck, CheckCircle2, MessageSquare, Zap } from 'lucide-react'
 import type { ReactNode } from 'react'
 
-const LEAKS = ['Slow response', 'No qualification', 'Manual chase']
-const FIXES = ['Instant routing', 'AI scored lead', 'Booked call']
+const LEAKS = ['Unclear fit', 'Little buying intent', 'Time spent chasing']
+const FIXES = ['Relevant need', 'Buying interest', 'Investment awareness']
 
 export function RevenueLeakVisual() {
   return (
@@ -17,16 +17,16 @@ export function RevenueLeakVisual() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
           >
             <p className="text-sm font-medium mb-3" style={{ color: '#00b4ff' }}>
-              Revenue leak visual
+              Qualification first
             </p>
             <h2 className="font-headline text-4xl md:text-5xl font-semibold text-foreground leading-tight tracking-tight">
-              See where leads{' '}
-              <span className="gradient-text">fall out</span> before they book.
+              Make every conversation{' '}
+              <span className="gradient-text">count</span> before you book.
             </h2>
             <p className="text-hero-sub text-lg mt-4 opacity-80 leading-8">
-              The system catches the quiet operational gaps: slow first replies,
-              unclear qualification, missed follow-ups, and handoffs that depend
-              on someone remembering.
+              A calendar invite is only useful when there is a reason to talk.
+              We explore the business need, check interest and discuss the
+              approximate investment before arranging a meeting.
             </p>
           </motion.div>
 
@@ -39,29 +39,29 @@ export function RevenueLeakVisual() {
           >
             <div className="flex items-center justify-between gap-4 mb-7">
               <div>
-                <p className="text-foreground text-sm font-semibold">Lead flow simulation</p>
-                <p className="text-hero-sub text-xs mt-1 opacity-70">Before and after LeadForm</p>
+                <p className="text-foreground text-sm font-semibold">The path to a relevant meeting</p>
+                <p className="text-hero-sub text-xs mt-1 opacity-70">Illustrative conversation flow</p>
               </div>
               <div className="flex items-center gap-2 text-xs font-medium" style={{ color: '#7dd3fc' }}>
                 <Zap className="w-4 h-4" />
-                Live recovery
+                Qualification
               </div>
             </div>
 
             <div className="space-y-5">
               <FlowLane
-                label="Manual funnel"
+                label="Unqualified outreach"
                 tone="danger"
-                start="New lead"
-                middle="Inbox queue"
-                end="Cold lead"
+                start="Prospect"
+                middle="Unchecked fit"
+                end="Poor-fit call"
                 chips={LEAKS}
               />
               <FlowLane
                 label="LeadForm system"
                 tone="success"
-                start="New lead"
-                middle="AI qualified"
+                start="Prospect"
+                middle="Qualified"
                 end="Booked call"
                 chips={FIXES}
               />
@@ -103,7 +103,7 @@ function FlowLane({ label, tone, start, middle, end, chips }: FlowLaneProps) {
           </span>
           <span className="text-foreground text-sm font-semibold">{label}</span>
         </div>
-        <span className="text-hero-sub text-xs opacity-65">{isSuccess ? 'Recovered' : 'At risk'}</span>
+        <span className="text-hero-sub text-xs opacity-65">{isSuccess ? 'Our approach' : 'Common risk'}</span>
       </div>
 
       <div className="grid grid-cols-[1fr_auto_1fr_auto_1fr] gap-2 md:gap-3 items-center">
@@ -162,7 +162,7 @@ function FlowNode({
 function AnimatedLine({ tone, delay }: { tone: 'danger' | 'success'; delay: number }) {
   const isSuccess = tone === 'success'
   return (
-    <div className="relative w-8 sm:w-12 md:w-16 h-px overflow-hidden bg-white/10">
+    <div className="relative w-3 sm:w-12 md:w-16 h-px overflow-hidden bg-white/10">
       <motion.span
         className="absolute inset-y-0 left-0 w-8 rounded-full"
         style={{

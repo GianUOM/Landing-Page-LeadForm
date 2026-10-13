@@ -2,9 +2,9 @@ import { useEffect, useRef } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 const STATS = [
-  { value: '30 Days', label: 'System go-live' },
-  { value: '< 60 Sec', label: 'Lead response time' },
-  { value: 'Results-based', label: 'Partnership model' },
+  { value: '90 days', label: 'Managed acquisition' },
+  { value: 'LinkedIn', label: 'Personalised outreach' },
+  { value: '6 criteria', label: 'Qualification first' },
 ]
 
 const NAV_ITEMS = [
@@ -133,7 +133,7 @@ export function HeroSection() {
             href="#contact"
             className="motion-button liquid-glass rounded-full px-4 py-2 text-foreground/90 text-sm hover:text-foreground transition-colors duration-150"
           >
-            <span>Free Audit</span>
+            <span>Book a call</span>
           </a>
         </nav>
 
@@ -142,28 +142,28 @@ export function HeroSection() {
 
         {/* Hero content — parallax scrolls up and fades out */}
         <motion.div
-          className="flex-1 flex flex-col items-center justify-center text-center"
+          className="flex-1 flex flex-col items-center justify-center text-center px-6 py-12"
           style={{ y: contentY, opacity: contentOpacity }}
         >
           <p className="text-sm font-medium mb-4 tracking-wide" style={{ color: '#00b4ff' }}>
-            AI Sales Systems · Marketing Agencies
+            LinkedIn acquisition for B2B coaches & consultants
           </p>
 
           <h1
             className="font-headline font-normal leading-[0.93] tracking-[-0.028em]"
-            style={{ fontSize: 'clamp(56px, 10vw, 148px)' }}
+            style={{ fontSize: 'clamp(38px, 8.5vw, 122px)' }}
           >
-            <span className="text-foreground block">Recover</span>
-            <span className="gradient-text block">Revenue.</span>
+            <span className="text-foreground block">Qualified</span>
+            <span className="gradient-text block">Conversations.</span>
           </h1>
 
           <p
             className="text-hero-sub text-lg leading-8 max-w-lg opacity-80"
             style={{ marginTop: '20px' }}
           >
-            We audit your agency's sales operations, then build AI-powered systems
-            that follow up faster, qualify better, and book more calls —
-            without adding headcount.
+            We help established US-based B2B business coaches and consultants
+            connect with prospects who have a genuine need, buying interest,
+            and an understanding of the investment involved.
           </p>
 
           <a
@@ -177,7 +177,7 @@ export function HeroSection() {
               marginTop: '28px',
             }}
           >
-            <span>Book a free audit</span>
+            <span>Book a strategy call</span>
           </a>
         </motion.div>
 

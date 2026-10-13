@@ -10,49 +10,12 @@ interface Phase {
 }
 
 const PHASES: Phase[] = [
-  {
-    number: '01',
-    title: 'Sales Operations Audit',
-    tag: 'Foundation',
-    description:
-      'We map your full lead-to-client journey and identify exactly where leads are being lost, delayed, or mismanaged — before a single automation is built.',
-  },
-  {
-    number: '02',
-    title: 'System Strategy',
-    tag: 'Design',
-    description:
-      'Once the problems are clear, we design a tailored sales infrastructure — qualification logic, follow-up workflows, CRM structure, and the full automation roadmap.',
-  },
-  {
-    number: '03',
-    title: 'Build & Implementation',
-    tag: 'Core',
-    description:
-      'We build every component — AI lead qualification, automated follow-up, appointment booking, CRM automations, and a live reporting dashboard, fully connected.',
-  },
-  {
-    number: '04',
-    title: 'Testing & Optimisation',
-    tag: 'QA',
-    description:
-      'Every workflow is stress-tested before go-live. Edge cases handled, errors fixed, performance optimised — no surprises after handover.',
-  },
-  {
-    number: '05',
-    title: 'Team Training & Handover',
-    tag: 'Launch',
-    description:
-      'We walk your team through every system, train them on the CRM and sales process, and provide full SOP documentation so adoption happens from day one.',
-  },
-  {
-    number: '06',
-    title: 'Ongoing Optimisation',
-    tag: 'Retainer',
-    description:
-      'After go-live, we monitor, maintain, and continuously improve the system every month — fixing issues, refining sequences, adding new automations. This is where compounding happens.',
-    retainer: true,
-  },
+  { number: '01', title: 'Build the foundation', tag: 'Days 1–7', description: 'We refine your ICP, optimise your profile, research prospects and agree messaging and qualification criteria. You receive onboarding content strategy guidance.' },
+  { number: '02', title: 'Start the conversations', tag: 'Weeks 2–4', description: 'We begin personalised outreach, manage replies, uncover challenges and qualify prospects. Relevant meetings go into your calendar while we track market feedback.' },
+  { number: '03', title: 'Review the evidence', tag: 'Day 30', description: 'We review responses, conversation quality and booked meetings together, then agree what needs improving.' },
+  { number: '04', title: 'Refine the approach', tag: 'Month 2', description: 'We use real conversation data and your appointment feedback to improve targeting, messaging, qualification and booking.' },
+  { number: '05', title: 'Strengthen what works', tag: 'Month 3', description: 'We focus on the approaches producing the strongest results, evaluate overall performance and discuss ongoing management.' },
+  { number: '06', title: 'Keep the process documented', tag: 'Throughout', description: 'We document the acquisition process as we work, so you have a clear view of the approach and can eventually take it over if you choose.', retainer: true },
 ]
 
 export function SolutionsSection() {
@@ -84,16 +47,16 @@ export function SolutionsSection() {
             How it works
           </p>
           <h2 className="font-headline text-4xl md:text-5xl font-semibold text-foreground leading-tight tracking-tight">
-            Six phases. <span className="gradient-text">No leads</span> lost.
+            90 days. <span className="gradient-text">A clear</span> process.
           </h2>
           <p className="text-hero-sub text-lg mt-4 opacity-80 leading-8">
-            Every stage moves a lead forward without your team needing to touch it.
+            Build, test and refine your LinkedIn acquisition using real conversations and your feedback.
           </p>
 
           <div className="liquid-glass rounded-2xl p-5 mt-8">
             <div className="flex items-center justify-between text-xs text-hero-sub/70 mb-3">
-              <span>Implementation path</span>
-              <span>30 day go-live</span>
+              <span>Engagement structure</span>
+              <span>Review at day 30</span>
             </div>
             <div className="h-2 rounded-full bg-white/5 overflow-hidden">
               <motion.div
@@ -212,7 +175,7 @@ function PhaseCard({ phase, index }: { phase: Phase; index: number }) {
               color: '#10b981',
             }}
           >
-            This is where most agencies stop. We don't.
+            Built to be understood, reviewed and improved together.
           </p>
         )}
       </motion.div>
